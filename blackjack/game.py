@@ -56,17 +56,17 @@ while 1==1:
 
     player.acereset()
     action.reset()
+    stack.clearbets()
 
-    print(f'Your stack size is {stack.size}')
+    print(f'\n\nYour stack size is {stack.size}')
 
-    # while True:
-    #     try:
-    #         bet = float(input('Please enter a bet'))
-    #         break
-    #     except ValueError:
-    #         print("Please enter a valid number")
+    while True:
+        try:
+            bet = float(input('Please enter a bet'))
+            break
+        except ValueError:
+            print("Please enter a valid number")
 
-    bet = 5
     stack.bet(bet)
     print(f'You bet {bet} chips')
 
@@ -78,11 +78,16 @@ while 1==1:
 
     bjc = game.blackjackcheck(r)
     if bjc == 'lose':
+        print(f'Dealer shows {action.dealerhand[1]}')
         print('Dealer Blackjack, skill issue')
+        continue
     elif bjc == 'push':
+        print(f'Dealer shows {action.dealerhand[1]}')
         print('Two Blackjacks, push')
+        continue
     elif bjc == 'win':
         print('Blackjack, nice hand!')
+        continue
 
 
     
@@ -191,4 +196,5 @@ while 1==1:
 
 
     if len(shoe.order)/(d*52) < pen:
+        print('\n\nReshuffling\n\n')
         shoe.reset()

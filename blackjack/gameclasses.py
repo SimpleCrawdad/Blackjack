@@ -114,7 +114,7 @@ class Logic:
         if self.value == 21 and len(self.hand) == 2:
                 self.blackjack = True
         if self.value > 21:
-            self.bust == True
+            self.bust = True
 
              
 
@@ -141,7 +141,7 @@ class Dealer(Logic):
                 else:
                     return self.value
             else: 
-                return 'bust'
+                self.bust = True
 
 
 
